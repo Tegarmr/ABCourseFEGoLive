@@ -1,0 +1,353 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  text-align: left;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Layout container for sidebar and main content */
+.layout-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* SIDEBAR STYLES */
+.sidebar {
+  position: sticky;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: linear-gradient(to bottom, #92d6d6, #b2e6a1);
+  overflow: hidden; /* Remove scrolling from sidebar */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-right: none;
+  z-index: 10;
+  padding-bottom: 24px;
+  /* Add subtle texture overlay */
+  background-image: linear-gradient(to bottom, #92d6d6, #b2e6a1),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-blend-mode: overlay;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  padding: 24px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.sidebar-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 20px 0 0 0;
+  letter-spacing: -0.03em;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(135deg, #1a5f7a 0%, #2d8f74 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  padding-bottom: 4px;
+}
+
+.sidebar-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(90deg, #1a5f7a, transparent);
+  border-radius: 3px;
+}
+
+.back-button {
+  background-color: rgba(20, 184, 166, 0.9);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  background-color: rgba(15, 148, 136, 1);
+  transform: translateX(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Lessons container */
+.lessons-container {
+  color: rgba(0, 0, 0, 0.8);
+  padding: 0 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* Add scrolling properties */
+  flex: 1; /* Take remaining space */
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 140px); /* Adjust based on header height */
+  padding-right: 12px; /* Space for scrollbar */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.lessons-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.lessons-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin: 5px 0;
+}
+
+.lessons-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 30px;
+}
+
+.lessons-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+.lessons-container::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Lesson Card Styles */
+.lesson-card {
+  padding: 14px 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 4px solid transparent;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.lesson-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.teal-card {
+  border-left-color: #14b8a6;
+}
+
+.blue-card {
+  border-left-color: #60a5fa;
+}
+
+.purple-card {
+  border-left-color: #a78bfa;
+}
+
+.red-card {
+  border-left-color: #f87171;
+}
+
+/* Card content */
+.card-icon {
+  background-color: rgba(31, 41, 55, 0.9);
+  border-radius: 10px;
+  padding: 8px;
+  margin-right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  color: white; /* Set icon color to white */
+}
+
+.lesson-card:hover .card-icon {
+  transform: scale(1.1);
+}
+
+.card-content {
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-subtitle {
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-title {
+  font-size: 1rem;
+  margin: 3px 0;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.card-duration {
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+}
+
+.card-duration::before {
+  content: "⏱️";
+  font-size: 0.7rem;
+  margin-right: 4px;
+}
+
+/* Custom scrollbar */
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* MAIN CONTENT STYLES */
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+/* Active state for selected lesson */
+.lesson-card.active {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-left-width: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateX(5px);
+  position: relative;
+}
+
+.lesson-card.active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #14b8a6;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.lesson-card.blue-card.active {
+  background-color: rgba(191, 219, 254, 0.5);
+}
+
+.lesson-card.blue-card.active::after {
+  background-color: #60a5fa;
+}
+
+.lesson-card.purple-card.active {
+  background-color: rgba(221, 214, 254, 0.5);
+}
+
+.lesson-card.purple-card.active::after {
+  background-color: #a78bfa;
+}
+
+.lesson-card.red-card.active {
+  background-color: rgba(254, 226, 226, 0.5);
+}
+
+.lesson-card.red-card.active::after {
+  background-color: #f87171;
+}
+
+/* Loading state */
+.layout-container > div:first-child:not(.sidebar) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  font-size: 1.2rem;
+  color: #6b7280;
+  background-color: #f9fafb;
+}
+
+/* Active card icon colors */
+.teal-card.active .card-icon {
+  background-color: #14b8a6;
+}
+
+.blue-card.active .card-icon {
+  background-color: #60a5fa;
+}
+
+.purple-card.active .card-icon {
+  background-color: #a78bfa;
+}
+
+.red-card.active .card-icon {
+  background-color: #f87171;
+}
