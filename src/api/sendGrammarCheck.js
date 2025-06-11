@@ -7,7 +7,7 @@ export const sendGrammarCheck = async (input) => {
   console.log("✅ Kirim ke server:", { text: input });
 
   try {
-    const response = await fetch("https://web-production-748c7.up.railway.app", {
+    const response = await fetch("https://web-production-748c7.up.railway.app/correct", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
