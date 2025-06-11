@@ -3,7 +3,7 @@ import "../styles.css";
 import axios from "axios";
 import { sendGrammarCheck } from "../../api/sendGrammarCheck";
 
-const API_URL = import.meta.env.VITE_API_URL2;
+const API_URL = import.meta.env.VITE_API_URL;
 
 const GrammarChecker = ({ userId }) => {
   const [input, setInput] = useState("");
