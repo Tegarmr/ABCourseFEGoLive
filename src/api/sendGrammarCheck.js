@@ -1,6 +1,3 @@
-
-const API_URL = import.meta.env.VITE_API_URL;
-
 export const sendGrammarCheck = async (input) => {
   if (!input) {
     console.error("❌ Input kosong");
@@ -10,12 +7,12 @@ export const sendGrammarCheck = async (input) => {
   console.log("✅ Kirim ke server:", { text: input });
 
   try {
-    const response = await fetch(`${API_URL}/api/grammar/check`, {
+    const response = await fetch("https://nelebaebae-grammarcheck.hf.space/correct", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      credentials: "include",
+      // credentials: "include", // HAPUS ini kalau backend kamu TIDAK pakai session/login cookie
       body: JSON.stringify({ text: input }),
     });
 
@@ -27,15 +24,10 @@ export const sendGrammarCheck = async (input) => {
 
     const data = await response.json();
     console.log("✅ Response dari backend:", data);
-
-    // Process or return the data as needed, for example:
-    // Display or save the corrected text in your frontend application.
-    // For example, you might want to return the corrected text:
     return data;
 
   } catch (error) {
     console.error("❌ Error during grammar check:", error.message);
-    // Optionally, return an error response or handle it in the UI
     return { error: "Grammar check failed, please try again later." };
   }
 };
