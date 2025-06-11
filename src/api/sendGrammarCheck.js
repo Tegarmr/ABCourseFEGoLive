@@ -7,7 +7,7 @@ export const sendGrammarCheck = async (input) => {
   console.log("✅ Kirim ke server:", { text: input });
 
   try {
-    const response = await fetch("https://nelebaebae-grammarcheck.hf.space/correct", {
+    const response = await fetch("https://web-production-748c7.up.railway.app", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
